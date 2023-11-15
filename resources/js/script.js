@@ -38,3 +38,8 @@ function newCard(){
     console.log(cards)
     renderGame();
 }
+
+
+for(let i = 0;cards.length;i+=1){
+    console.log(cards[i]);
+}
