@@ -29,6 +29,7 @@ function renderGame(){
 
     cardsEL.textContent = "Card: " + cards[0] + " " + cards[1]
 } 
+ 
 
 function newCard(){
     console.log("Drawing a new card from the deck!");
