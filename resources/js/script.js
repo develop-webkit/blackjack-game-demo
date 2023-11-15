@@ -1,6 +1,7 @@
-let firstCard = 10
-let secondCard = 9
-let sum = firstCard + secondCard 
+let firstNumber = 10;
+let secondNumber = 8
+let cards = [firstNumber,secondNumber]
+let sum = cards[0] + cards[1] 
 let hasBlackJack = false
 let isAlive = true
 let message = ""
@@ -26,15 +27,14 @@ function renderGame(){
     sumEl.textContent = "Sum: " + sum
     messageEl.textContent = message
 
-    cardsEL.textContent = "Card: " + firstCard + " " + secondCard
+    cardsEL.textContent = "Card: " + cards[0] + " " + cards[1]
 } 
 
 function newCard(){
     console.log("Drawing a new card from the deck!");
-    // 1. Create a card variable, and hard code its value to a number (2-11)
     let card = 2;
-    // 2. Add the new card to the sum variable
     sum += card;
-    // 3. Call startGame()
+    cards.push(card);
+    console.log(cards)
     renderGame();
 }
