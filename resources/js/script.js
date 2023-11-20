@@ -1,5 +1,5 @@
-let firstNumber = 10;
-let secondNumber = 8
+let firstNumber = getRandomCard()
+let secondNumber = getRandomCard()
 let cards = [firstNumber,secondNumber]
 let sum = cards[0] + cards[1] 
 let hasBlackJack = false
@@ -13,11 +13,24 @@ function startGame(){
     renderGame();
 }
 
+function getRandomCard() {
+    let randomNumber = Math.floor(Math.random() * 13) + 1   
+    console.log(randomNumber)
+    if(randomNumber > 10){
+        return 10
+    }else if(randomNumber === 1){
+        return 11
+    }else{
+        return randomNumber;
+    }
+}
+
+
 function renderGame(){
 
     cardsEl.textContent = "Card: "
 
-    for(let i=0;cards.length;i++){
+    for(let i=0;i < cards.length;i++){
         cardsEl.textContent += cards[i] + " ";
     }
 
@@ -38,15 +51,8 @@ function renderGame(){
  
 
 function newCard(){
-    console.log("Drawing a new card from the deck!");
-    let card = 2;
+    let card = getRandomCard();
     sum += card;
     cards.push(card);
-    console.log(cards)
     renderGame();
-}
-
-
-for(let i = 0;cards.length;i+=1){
-    console.log(cards[i]);
 }
