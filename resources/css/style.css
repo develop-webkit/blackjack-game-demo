@@ -71,3 +71,7 @@ p{
     cursor: pointer;
     margin-bottom:10px;
 }
+
+#newCardBtn{
+    display:none;
+}

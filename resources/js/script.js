@@ -1,3 +1,7 @@
+let player = {
+    name: "Nabeel",
+    chips: 200
+}
 let firstNumber = 0
 let secondNumber = 0
 let cards = []
@@ -8,6 +12,11 @@ let message = ""
 let messageEl = document.getElementById("message-el")
 let sumEl = document.querySelector("#sum-el")
 let cardsEl = document.querySelector("#cards-el")
+let playerEl = document.getElementById("player-el")
+let newCardButton = document.querySelector("#newCardBtn")
+
+// 4. Render the player's name and chips in playerEl
+
 
 function startGame(){
     firstNumber = getRandomCard()
@@ -15,6 +24,7 @@ function startGame(){
     cards = [firstNumber, secondNumber]
     sum = cards[0] + cards[1]
     isAlive = true
+    hasBlackJack = false
     renderGame()
 }
 
@@ -45,19 +55,26 @@ function renderGame(){
     } else if (sum === 21) {
         message =  "You've got Blackjack!"
         hasBlackJack = true
+        player.chips += 50
     } else {
         message =  "You're out of the game!"
+        player.chips -= 50
         isAlive = false
     }
 
     sumEl.textContent = "Sum: " + sum
     messageEl.textContent = message
+    playerEl.textContent = player.name + ": $" + player.chips
+    newCardButton.style.display = "inline-block"
 } 
  
 
 function newCard(){
-    let card = getRandomCard()
-    sum += card
-    cards.push(card)
-    renderGame()
+
+    if (isAlive === true && hasBlackJack === false){
+        let card = getRandomCard()
+        sum += card
+        cards.push(card)
+        renderGame()
+    }
 }
